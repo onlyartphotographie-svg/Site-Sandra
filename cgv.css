@@ -1,0 +1,643 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--dark:#17120f;--brown:#674334;--gold:#d5ad63;--cream:#eee7dc;--bg:#f7f3ed;--text:#2d241f;--muted:#756b64;--line:#e2d7cc;--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--sans)}a{text-decoration:none;color:inherit}
+.header{height:86px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#f7f3edf5;position:sticky;top:0;z-index:50}
+.logo{display:flex;flex-direction:column;line-height:.8}.logo b{font:500 24px var(--serif)}.logo small{font-size:8px;letter-spacing:.28em;margin:6px 0 0 3px}
+.header nav{display:flex;gap:22px;font-size:12px}.header nav a{position:relative;padding:9px 0}.header nav a:after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--brown);transition:.3s}.header nav a:hover:after,.header nav .active:after{right:0}.menu{display:none;border:0;background:none;font-size:25px}
+.legal{padding:75px 7% 120px}.document{max-width:980px;margin:auto}
+.document h1{font:500 clamp(46px,5.5vw,72px)/.95 var(--serif);text-align:center;color:var(--brown);margin:0 0 55px}
+.document h2{font:600 31px/1.1 var(--serif);color:var(--brown);margin:48px 0 17px;padding-top:22px;border-top:1px solid var(--line)}
+.document h3{font:600 20px/1.3 var(--serif);margin:25px 0 10px}
+.document p,.document li{font-size:13px;line-height:1.85;color:var(--muted)}
+.document p{margin:0 0 13px}.document ul{padding-left:22px;margin:8px 0 18px}.document li{padding:3px 0}
+.document strong{color:var(--text)}.document .blank{height:4px}
+.document>h1:first-child{color:var(--text)}
+.reveal{opacity:0;transform:translateY(15px);transition:.7s}.reveal.visible{opacity:1;transform:none}
+footer{background:var(--dark);color:#fff;padding:55px 7%;display:grid;grid-template-columns:1.2fr .7fr 1fr;gap:45px}footer>div{display:flex;flex-direction:column;gap:8px}footer>div>b{font-size:9px;letter-spacing:.18em;color:var(--gold)}footer p,footer a{font-size:12px;line-height:1.6;color:#ffffffa5}
+.top{position:fixed;right:20px;bottom:20px;width:43px;height:43px;border:0;border-radius:50%;background:var(--dark);color:#fff;opacity:0;visibility:hidden;transition:.3s}.top.show{opacity:1;visibility:visible}
+@media(max-width:1000px){.header nav{gap:12px;font-size:10px}}
+@media(max-width:800px){.menu{display:block;position:relative;z-index:100}.header nav{position:fixed;inset:0;background:#f7f3edfa;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transform:translateX(100%);transition:.4s}.header nav.open{transform:none}.header nav a{font:28px var(--serif)}}
+@media(max-width:560px){.header{height:72px;padding:0 20px}.legal{padding:50px 20px 80px}.document h1{font-size:39px;margin-bottom:40px}.document h2{font-size:27px}.document h3{font-size:18px}.document p,.document li{font-size:12.5px}footer{grid-template-columns:1fr;padding:45px 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+/* =========================================================
+   CGV — esthétique du NOUVEAU site Only Art
+   Palette crème / brun chaud / brun profond / doré
+   Mise en page simple type document, sans bannière.
+   ========================================================= */
+
+body{
+  background:#f7f3ed;
+  color:#2d241f;
+}
+
+.legal{
+  max-width:1450px;
+  margin:0 auto;
+  padding:70px 7% 120px;
+}
+
+.document{
+  position:relative;
+  max-width:1050px;
+  margin:0 auto;
+  padding:0;
+}
+
+/* Petit titre sobre, pas un hero */
+.document>h1:first-child{
+  max-width:760px;
+  margin:0 auto 48px;
+  padding:0 0 22px;
+  text-align:center;
+  font:500 clamp(22px,2.5vw,32px)/1.15 var(--serif);
+  letter-spacing:.025em;
+  color:#674334;
+  border-bottom:1px solid #d5ad63;
+}
+
+/* Le contenu juridique devient une grande feuille élégante */
+.document{
+  background:#fffdf9;
+  padding:58px 70px 72px;
+  border:1px solid #e2d7cc;
+  box-shadow:0 20px 55px rgba(45,36,31,.055);
+}
+
+/* petite touche décorative du nouveau site */
+.document:before{
+  content:"";
+  position:absolute;
+  left:-1px;
+  top:105px;
+  width:3px;
+  height:95px;
+  background:#d5ad63;
+}
+
+.document h1:not(:first-child){
+  text-align:left;
+  margin:42px 0 20px;
+  font:600 31px/1.15 var(--serif);
+  color:#674334;
+}
+
+.document h2{
+  position:relative;
+  margin:38px 0 14px;
+  padding:18px 0 0;
+  border-top:1px solid #e2d7cc;
+  font:600 24px/1.2 var(--serif);
+  color:#674334;
+}
+
+.document h2:after{
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:0;
+  width:42px;
+  height:2px;
+  background:#d5ad63;
+}
+
+.document h3{
+  margin:20px 0 8px;
+  font:600 16px/1.35 var(--sans);
+  color:#2d241f;
+}
+
+.document p,
+.document li{
+  font-size:12.5px;
+  line-height:1.85;
+  color:#756b64;
+}
+
+.document p{
+  margin-bottom:13px;
+}
+
+.document ul{
+  margin:7px 0 18px;
+  padding-left:20px;
+}
+
+.document li{
+  padding:2px 0;
+}
+
+.document strong{
+  color:#2d241f;
+  font-weight:600;
+}
+
+.document .blank{
+  height:4px;
+}
+
+/* Informations du début légèrement mises en valeur sans ajouter de bloc lourd */
+.document>p:nth-of-type(-n+9){
+  color:#5d4c43;
+}
+
+/* Le header reprend le nouveau site */
+.header{
+  background:#f7f3edf7;
+  border-bottom:1px solid #e2d7cc;
+}
+
+@media(max-width:800px){
+  .legal{
+    padding:55px 5% 90px;
+  }
+
+  .document{
+    padding:45px 40px 58px;
+  }
+
+  .document>h1:first-child{
+    margin-bottom:40px;
+  }
+}
+
+@media(max-width:560px){
+  .legal{
+    padding:42px 16px 70px;
+  }
+
+  .document{
+    padding:34px 20px 45px;
+    box-shadow:none;
+  }
+
+  .document:before{
+    top:85px;
+    height:70px;
+    width:2px;
+  }
+
+  .document>h1:first-child{
+    font-size:23px;
+    margin-bottom:34px;
+    padding-bottom:18px;
+  }
+
+  .document h2{
+    font-size:21px;
+    margin-top:31px;
+  }
+
+  .document h3{
+    font-size:14px;
+  }
+
+  .document p,
+  .document li{
+    font-size:11.5px;
+    line-height:1.75;
+  }
+}
+
+
+/* =========================================================
+   V2 — début des CGV en bloc éditorial, comme la maquette,
+   mais avec l'esthétique du nouveau site Only Art
+   ========================================================= */
+
+.legal-intro-block{
+  margin-bottom:55px;
+  padding:34px 38px 30px;
+  background:#fffdf9;
+  border:1px solid var(--line);
+  border-left:3px solid var(--gold);
+}
+
+.legal-intro-block h1{
+  margin:0 0 28px !important;
+  padding:0 0 16px !important;
+  border-bottom:1px solid var(--line) !important;
+  text-align:center !important;
+  font:500 24px/1.2 var(--serif) !important;
+  color:var(--brown) !important;
+}
+
+.legal-intro-block p{
+  margin-bottom:12px;
+  color:var(--text);
+  font-size:12.5px;
+  line-height:1.7;
+}
+
+.legal-intro-block p:first-of-type{
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:.045em;
+  line-height:1.6;
+}
+
+.legal-intro-block p:nth-of-type(2){
+  margin-top:22px;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:.035em;
+}
+
+.legal-intro-block p:nth-of-type(n+3):nth-of-type(-n+9){
+  margin-bottom:3px;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:.025em;
+}
+
+.legal-intro-block p:last-of-type{
+  margin-top:28px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+  text-transform:none;
+  font-weight:400;
+  letter-spacing:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+@media(max-width:560px){
+  .legal-intro-block{
+    padding:24px 20px 22px;
+    margin-bottom:42px;
+  }
+
+  .legal-intro-block h1{
+    font-size:20px !important;
+  }
+
+  .legal-intro-block p{
+    font-size:11.5px;
+  }
+}
+
+/* === Final integration overrides === */
+img{max-width:100%;height:auto}.photo img,.fake-photo img,.restore-photo img,.ba-image img{opacity:1!important}.photo>span,.fake-photo>span,.restore-photo>span,.ba-image>span{display:none!important}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #d5ad63;outline-offset:3px}@media(max-width:560px){h1,h2,h3{overflow-wrap:normal;word-break:normal}.navigation,.header nav,.main-nav{max-width:100vw}.section,.wrap{max-width:100%}}
+
+
+/* Navigation prestations */
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:5px}
+.nav-caret{font-size:.82em;transition:transform .25s ease}
+.nav-submenu{
+  position:absolute;z-index:120;top:calc(100% + 12px);left:50%;
+  min-width:220px;padding:10px;background:#17120ff2;
+  border:1px solid rgba(213,173,99,.28);box-shadow:0 16px 35px rgba(0,0,0,.18);
+  display:flex;flex-direction:column;gap:2px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translate(-50%,8px);transition:.22s ease
+}
+.nav-submenu a{
+  padding:9px 11px!important;color:#fff!important;font-size:11px!important;
+  font-family:var(--sans,Arial,sans-serif)!important;white-space:nowrap
+}
+.nav-submenu a:after{display:none!important}
+.nav-submenu a:hover{background:rgba(255,255,255,.07);color:#efd39a!important}
+.nav-dropdown:hover .nav-submenu,.nav-dropdown:focus-within .nav-submenu{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)
+}
+.nav-dropdown:hover .nav-caret{transform:rotate(180deg)}
+@media(max-width:850px){
+  .nav-dropdown{display:flex;flex-direction:column;align-items:center;width:100%}
+  .nav-submenu{
+    position:static;min-width:0;width:100%;padding:3px 0 0;background:transparent;border:0;
+    box-shadow:none;opacity:1;visibility:visible;pointer-events:auto;transform:none;
+    align-items:center;gap:0
+  }
+  .nav-submenu a{font-size:15px!important;padding:3px 8px!important;opacity:.72}
+  .nav-caret{display:none}
+}
+
+
+/* ===== Correctif menu déroulant Prestations =====
+   Supprime l'espace entre "Prestations" et le sous-menu afin que
+   le curseur puisse passer de l'un à l'autre sans fermer le menu. */
+@media(min-width:851px){
+  .nav-dropdown{
+    padding-bottom:12px;
+    margin-bottom:-12px;
+  }
+
+  .nav-submenu{
+    top:100% !important;
+    margin-top:0 !important;
+    transform:translate(-50%,0) !important;
+  }
+
+  .nav-dropdown:hover .nav-submenu,
+  .nav-dropdown:focus-within .nav-submenu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translate(-50%,0) !important;
+  }
+}
+
+
+
+/* =========================================================
+   V5 — MENU MOBILE : sous-menu Prestations lisible
+   ========================================================= */
+@media(max-width:850px){
+  .header nav,.navigation{
+    overflow-y:auto!important;
+    padding-top:70px!important;
+    padding-bottom:45px!important
+  }
+  .nav-dropdown{
+    width:100%!important;display:flex!important;flex-direction:column!important;
+    align-items:center!important;padding:0!important;margin:0!important
+  }
+  .nav-dropdown>a{opacity:1!important}
+  .nav-submenu{
+    position:static!important;width:min(88%,330px)!important;min-width:0!important;
+    margin:8px auto 4px!important;padding:10px 12px!important;
+    display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;
+    background:rgba(255,255,255,.08)!important;
+    border-top:1px solid rgba(255,255,255,.18)!important;
+    border-bottom:1px solid rgba(255,255,255,.18)!important;
+    border-left:0!important;border-right:0!important;box-shadow:none!important;
+    opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important
+  }
+  .nav-submenu a{
+    display:block!important;width:100%!important;padding:7px 6px!important;text-align:center!important;
+    font-size:14px!important;line-height:1.25!important;font-family:var(--sans,Arial,sans-serif)!important;
+    color:#f4eadf!important;opacity:1!important;white-space:normal!important
+  }
+  .nav-submenu a:hover,.nav-submenu a:focus{
+    background:rgba(255,255,255,.07)!important;color:#fff!important
+  }
+  .nav-caret{display:none!important}
+}
+
+/* Pages à menu clair sur mobile */
+@media(max-width:850px){
+  body.menu-light .header nav .nav-submenu{
+    background:rgba(103,67,52,.08)!important;
+    border-color:rgba(103,67,52,.18)!important
+  }
+  body.menu-light .header nav .nav-submenu a{
+    color:#674334!important
+  }
+}
+
+
+
+/* =========================================================
+   V7 — MENU MOBILE : sous-menu Prestations toujours lisible
+   Corrige notamment À propos, CGV et Tarifs.
+   ========================================================= */
+@media(max-width:850px){
+
+  .header nav,
+  .navigation{
+    overflow-y:auto !important;
+    padding-top:72px !important;
+    padding-bottom:48px !important;
+  }
+
+  .nav-dropdown{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    padding:0 !important;
+    margin:0 !important;
+  }
+
+  .nav-dropdown > a{
+    opacity:1 !important;
+    color:inherit !important;
+  }
+
+  .nav-submenu{
+    position:static !important;
+    width:min(88%, 330px) !important;
+    min-width:0 !important;
+    margin:8px auto 4px !important;
+    padding:10px 12px !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:4px !important;
+
+    background:rgba(103,67,52,.10) !important;
+    border-top:1px solid rgba(103,67,52,.22) !important;
+    border-bottom:1px solid rgba(103,67,52,.22) !important;
+    border-left:0 !important;
+    border-right:0 !important;
+    box-shadow:none !important;
+
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+  }
+
+  .nav-submenu a{
+    display:block !important;
+    width:100% !important;
+    padding:7px 6px !important;
+    text-align:center !important;
+
+    font-size:14px !important;
+    line-height:1.3 !important;
+    font-family:var(--sans, Arial, sans-serif) !important;
+
+    color:#674334 !important;
+    opacity:1 !important;
+    white-space:normal !important;
+  }
+
+  .nav-submenu a:hover,
+  .nav-submenu a:focus{
+    background:rgba(103,67,52,.08) !important;
+    color:#17120f !important;
+  }
+
+  .nav-caret{
+    display:none !important;
+  }
+}
+
+/* Si le menu mobile de la page est sombre, on garde un contraste fort */
+@media(max-width:850px){
+  .header nav[style*="background:#17120f"],
+  .navigation[style*="background:#17120f"]{
+    color:#fff;
+  }
+
+  .header nav[style*="background:#17120f"] .nav-submenu,
+  .navigation[style*="background:#17120f"] .nav-submenu{
+    background:rgba(255,255,255,.08) !important;
+    border-color:rgba(255,255,255,.16) !important;
+  }
+
+  .header nav[style*="background:#17120f"] .nav-submenu a,
+  .navigation[style*="background:#17120f"] .nav-submenu a{
+    color:#f6ede4 !important;
+  }
+}
+
+
+
+/* =========================================================
+   V8 — MENU MOBILE REFAIT PROPREMENT
+   Fond totalement opaque + sous-menu Prestations lisible
+   ========================================================= */
+@media(max-width:850px){
+
+  body.menu-open{
+    overflow:hidden !important;
+  }
+
+  .header nav,
+  .navigation{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:9999 !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    gap:14px !important;
+    padding:95px 24px 45px !important;
+
+    background:#17120f !important;
+    color:#ffffff !important;
+
+    overflow-y:auto !important;
+    overscroll-behavior:contain !important;
+
+    transform:translateX(100%);
+    transition:transform .35s ease !important;
+  }
+
+  .header nav.open,
+  .navigation.open{
+    transform:translateX(0) !important;
+  }
+
+  .header nav > a,
+  .navigation > a,
+  .nav-dropdown > a{
+    color:#fff !important;
+    font:500 30px/1.1 var(--serif, Georgia, serif) !important;
+    opacity:1 !important;
+    padding:4px 0 !important;
+    text-align:center !important;
+  }
+
+  .header nav > a::after,
+  .navigation > a::after,
+  .nav-dropdown > a::after{
+    background:#d5ad63 !important;
+  }
+
+  .nav-dropdown{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+
+    width:min(92%, 360px) !important;
+    margin:2px auto 0 !important;
+    padding:0 !important;
+  }
+
+  .nav-caret{
+    display:none !important;
+  }
+
+  .nav-submenu{
+    position:static !important;
+    inset:auto !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+
+    width:100% !important;
+    min-width:0 !important;
+
+    margin:10px 0 2px !important;
+    padding:12px 14px !important;
+
+    gap:0 !important;
+
+    background:#2b1e18 !important;
+    border:1px solid rgba(213,173,99,.38) !important;
+    box-shadow:none !important;
+
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+
+    transform:none !important;
+  }
+
+  .nav-submenu a{
+    display:block !important;
+
+    width:100% !important;
+    padding:10px 8px !important;
+
+    text-align:center !important;
+
+    color:#f3e7dc !important;
+    opacity:1 !important;
+
+    font:500 14px/1.3 var(--sans, Arial, sans-serif) !important;
+    letter-spacing:.01em !important;
+
+    white-space:normal !important;
+
+    border-bottom:1px solid rgba(255,255,255,.09) !important;
+    background:transparent !important;
+  }
+
+  .nav-submenu a:last-child{
+    border-bottom:0 !important;
+  }
+
+  .nav-submenu a:hover,
+  .nav-submenu a:focus{
+    color:#efd39a !important;
+    background:rgba(255,255,255,.04) !important;
+  }
+
+  .menu,
+  .menu-toggle{
+    position:relative !important;
+    z-index:10000 !important;
+  }
+}
+
+@media(max-width:560px){
+  .header nav,
+  .navigation{
+    padding-top:82px !important;
+    gap:12px !important;
+  }
+
+  .header nav > a,
+  .navigation > a,
+  .nav-dropdown > a{
+    font-size:27px !important;
+  }
+
+  .nav-submenu{
+    padding:10px 12px !important;
+  }
+
+  .nav-submenu a{
+    font-size:13.5px !important;
+    padding:9px 6px !important;
+  }
+}

@@ -1,0 +1,6 @@
+const menu=document.querySelector(".menu"),nav=document.querySelector(".header nav");
+menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));document.body.style.overflow=open?"hidden":"";document.body.classList.toggle("menu-open",open)});
+nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");document.body.style.overflow="";document.body.classList.remove("menu-open")}));
+const reveals=document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}})},{threshold:.08});reveals.forEach(el=>observer.observe(el))}else{reveals.forEach(el=>el.classList.add("visible"))}
+const topBtn=document.querySelector(".top");addEventListener("scroll",()=>topBtn?.classList.toggle("show",scrollY>600));topBtn?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));

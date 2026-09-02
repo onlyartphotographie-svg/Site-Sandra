@@ -1,0 +1,8 @@
+const menu=document.querySelector('.menu'),nav=document.querySelector('.header nav'),topBtn=document.querySelector('.top');
+if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}))}
+const slides=[...document.querySelectorAll('.experienceSlide')],dots=[...document.querySelectorAll('.dot')];let current=0;
+function showSlide(i){if(!slides.length)return;current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===current));dots.forEach((d,n)=>d.classList.toggle('active',n===current))}
+document.querySelector('.prev')?.addEventListener('click',()=>showSlide(current-1));document.querySelector('.next')?.addEventListener('click',()=>showSlide(current+1));dots.forEach((d,n)=>d.addEventListener('click',()=>showSlide(n)));
+let startX=0;const viewport=document.querySelector('.slideViewport');viewport?.addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});viewport?.addEventListener('touchend',e=>{const dx=startX-e.changedTouches[0].screenX;if(Math.abs(dx)>50)showSlide(current+(dx>0?1:-1))},{passive:true});
+document.querySelectorAll('.faqList details').forEach(item=>item.addEventListener('toggle',()=>{if(item.open)document.querySelectorAll('.faqList details').forEach(other=>{if(other!==item)other.removeAttribute('open')})}));
+addEventListener('scroll',()=>topBtn?.classList.toggle('show',scrollY>600));topBtn?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
